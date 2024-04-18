@@ -16,11 +16,17 @@ provider "azurerm" {
   features {}
 }
 
+variable region {
+  type        = string
+  default     = "uksouth"
+  description = "Region where the resources will be deployed"
+}
+
 
 
 # Resource Group
 resource "azurerm_resource_group" "rg" {
-  location = var.resource_group_location
+  location = var.region
   name     = "rg-infra"
 }
 
